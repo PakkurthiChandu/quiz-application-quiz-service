@@ -1,6 +1,7 @@
 package com.chandu.Quiz_Service.service.serviceimpl;
 
 import com.chandu.Quiz_Service.dto.QuestionDTO;
+import com.chandu.Quiz_Service.dto.QuizDTO;
 import com.chandu.Quiz_Service.feign.QuizInterface;
 import com.chandu.Quiz_Service.model.Quiz;
 import com.chandu.Quiz_Service.model.Response;
@@ -56,5 +57,10 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public ResponseEntity<Integer> submitQuiz(Long id, List<Response> reponses) {
         return quizInterface.getScore(reponses);
+    }
+
+    @Override
+    public List<Quiz> findAll() {
+        return quizRepository.findAll();
     }
 }
