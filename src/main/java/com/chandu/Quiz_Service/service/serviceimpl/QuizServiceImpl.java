@@ -2,18 +2,16 @@ package com.chandu.Quiz_Service.service.serviceimpl;
 
 import com.chandu.Quiz_Service.dto.QuestionDTO;
 import com.chandu.Quiz_Service.feign.QuizInterface;
-import com.chandu.Quiz_Service.model.Question;
 import com.chandu.Quiz_Service.model.Quiz;
 import com.chandu.Quiz_Service.model.Response;
 import com.chandu.Quiz_Service.repository.QuizRepository;
 import com.chandu.Quiz_Service.service.QuizService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class QuizServiceImpl implements QuizService {
@@ -54,7 +52,7 @@ public class QuizServiceImpl implements QuizService {
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-//
+
     @Override
     public ResponseEntity<Integer> submitQuiz(Long id, List<Response> reponses) {
         return quizInterface.getScore(reponses);
